@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Veldrid" />
+    <PackageReference Include="Veldrid.SPIRV" />
+    <PackageReference Include="Veldrid.StartupUtilities" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Engine.Core\Engine.Core.csproj" />
+		<ProjectReference Include="..\..\Engine.Graphics\Engine.Graphics.csproj" />
+		<ProjectReference Include="..\..\Engine.Mesh\Engine.Mesh.csproj" />
+		<ProjectReference Include="..\..\Engine.Shaders\Engine.Shaders.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="Shaders\*.glsl">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Shaders\MyShader.frag.spv" />
+	  <None Remove="Shaders\MyShader.vert.spv" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Shaders\MyShader.frag.spv">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Shaders\MyShader.vert.spv">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+</Project>
